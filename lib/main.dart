@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'package:flutter_hacker_news/components/news_item.dart';
+
 void main() => runApp(new MyApp());
 
 class MyApp extends StatelessWidget {
@@ -24,39 +26,28 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: new AppBar(
         title: new Text(widget.title),
-        leading: new Icon(new IconData(89)), // code point for 'Y'
+        leading: new Container(
+          decoration: const BoxDecoration(
+            border: const Border(
+              top: const BorderSide(width: 1.0, color: const Color(0xFFFFFFFFFF)),
+              left: const BorderSide(width: 1.0, color: const Color(0xFFFFFFFFFF)),
+              right: const BorderSide(width: 1.0, color: const Color(0xFFFFFFFFFF)),
+              bottom: const BorderSide(width: 1.0, color: const Color(0xFFFFFFFFFF)),
+            )
+          ),
+          margin: new EdgeInsets.all(8.0),
+          child: const Icon(const IconData(89))
+        ), // code point for 'Y'
       ),
-      body: new Center(
-        child: new Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            new Text(
-              'You have pushed the button this many times:',
-            ),
-            new Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.display1,
-            ),
-          ],
-        ),
-      ),
-      floatingActionButton: new FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: new Icon(Icons.add),
+      body: new ListView(
+        children: <Widget>[
+          new NewsItem(Item.getMock()),
+        ],
       ),
     );
   }
