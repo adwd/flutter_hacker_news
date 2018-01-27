@@ -36,19 +36,6 @@ class NewsItem extends StatelessWidget {
       );
 }
 
-/**
-    {
-    "by" : "tonyztan",
-    "descendants" : 37,
-    "id" : 16244298,
-    "kids" : [ 16244919, 16244856, 16244796, 16244626, 16244663, 16244875, 16244353, 16244900, 16244772 ],
-    "score" : 85,
-    "time" : 1517016589,
-    "title" : "USAF Is Jamming GPS in Western U.S. For Largest Ever Red Flag Air War Exercise",
-    "type" : "story",
-    "url" : "http://www.thedrive.com/the-war-zone/17987/usaf-is-jamming-gps-in-the-western-u-s-for-largest-ever-red-flag-air-war-exercise"
-    }
- */
 class Item {
   final int index;
   final String title;
@@ -59,6 +46,15 @@ class Item {
   final int descendants;
 
   const Item({this.index, this.title, this.url, this.score, this.by, this.time, this.descendants});
+
+  Item.fromMap(Map<String, dynamic> map):
+      index = map['index'] ?? 1,
+      title = map['title'],
+      url = map['url'],
+      score = map['score'],
+      by = map['by'],
+      time = map['time'],
+      descendants = map['descendants'];
 
   String get site => Uri.parse(url).host;
 
