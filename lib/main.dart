@@ -11,11 +11,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new MaterialApp(
-      title: 'Flutter Demo',
+      title: 'HackR News',
       theme: new ThemeData(
-        primarySwatch: Colors.deepOrange,
+        primarySwatch: Colors.white,
       ),
-      home: new MyHomePage(title: 'Hacker News Flutter'),
+      home: new MyHomePage(title: 'HackR News'),
     );
   }
 }
